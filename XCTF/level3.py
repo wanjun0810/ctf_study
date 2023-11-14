@@ -1,10 +1,11 @@
 from pwn import *
 
 context.log_level='debug'
-# sh = process("./level3")  # 本地不行
-sh = remote("61.147.171.105", 57351)
+sh = process("./level3")  # 本地不行
+# sh = remote("61.147.171.105", 57351)
 elf = ELF("./level3")
-libc = ELF("./libc_32.so.6")
+# libc = ELF("./libc_32.so.6")
+libc = ELF("./libc.so.6")
 
 write_plt = elf.plt['write']
 write_got = elf.got['write']
